@@ -1,0 +1,6 @@
+import { LayoutDashboard, Bookmark, History, UserRound, Settings, Search } from "lucide-react";
+import { NavLink } from "react-router-dom";
+const items = [[LayoutDashboard,"Dashboard","/dashboard"],[Bookmark,"Saved vendors","/saved"],[Search,"New search","/search"],[History,"Search history","/history"],[UserRound,"Profile","/profile"],[Settings,"Settings","/settings"]];
+export default function Sidebar() {
+ return <aside className="hidden w-64 shrink-0 rounded-2xl bg-navy p-4 text-white lg:block"><div className="mb-8 px-2 pt-2 text-lg font-extrabold">Vender Search</div><nav className="space-y-1">{items.map(([Icon,label,to])=><NavLink key={to} to={to} className={({isActive})=>`flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-semibold ${isActive?"bg-brand text-white":"text-blue-100 hover:bg-white/10"}`}><Icon size={18}/>{label}</NavLink>)}</nav><div className="mt-12 rounded-xl bg-white/10 p-4"><p className="font-bold">Discover more</p><p className="mt-1 text-xs leading-5 text-blue-100">Find the best vendors with AI-powered search.</p><NavLink to="/search" className="mt-3 inline-block rounded-lg bg-white px-3 py-2 text-xs font-bold text-brand">Start search →</NavLink></div></aside>;
+}
